@@ -1,4 +1,4 @@
-const { addNoteHandler, getAllNotesHandler, getNoteByIdHandler, editNoteByIdHandler } = require('./handler');
+const { addNoteHandler, getAllNotesHandler, getNoteByIdHandler, editNoteByIdHandler, deleteNoteByIdHandler } = require('./handler');
 const routes = [
   {
     method: 'POST',
@@ -34,6 +34,16 @@ const routes = [
     method: 'PUT',
     path: '/notes/{id}',
     handler: editNoteByIdHandler,
+    options: {
+      cors: {
+        origin: ['*'],
+      },
+    },
+  },
+  {
+    method: 'DELETE',
+    path: '/notes/{id}',
+    handler: deleteNoteByIdHandler,
     options: {
       cors: {
         origin: ['*'],
